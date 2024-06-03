@@ -1418,3 +1418,4 @@ export type Markets =
   | typeof data.destinations.multiMarket;
 
 export type Market = (typeof data.destinations.featuredMultiMarket)[0];
+export type Hero = typeof data.hero;
