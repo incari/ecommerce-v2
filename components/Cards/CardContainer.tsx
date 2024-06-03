@@ -1,10 +1,10 @@
 "use client";
 import { Card } from "./Card";
-import { Market, Markets } from "../../app/services/placeholder";
+import { Markets } from "../../app/services/placeholder";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-export type Card = {
+type Card = {
   id: string;
   name: string;
   url: string;

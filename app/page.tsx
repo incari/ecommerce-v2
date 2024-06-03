@@ -1,9 +1,8 @@
-import Image from "next/image";
-import CardContainer from "../components/Cards/CardContainer";
+import { CardContainer } from "../components/Cards/CardContainer";
 import { Header } from "../components/Header";
 import { getData } from "./services/getData";
 import "react-tooltip/dist/react-tooltip.css";
-import Hero from "../components/Hero";
+import { Hero } from "../components/Hero";
 
 export default async function Home() {
   const {
