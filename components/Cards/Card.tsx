@@ -9,7 +9,7 @@ import { CardDetails } from "./CardDetails";
 import { ImageWithHover } from "./ImageWithHover";
 
 import { Tooltip } from "react-tooltip";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 import { useSearchParams } from "next/navigation";
@@ -122,4 +122,12 @@ const Card = ({ card }: { card: Market }) => {
   );
 };
 
-export { Card };
+const CardSuspense = ({ card }: { card: Market }) => {
+  return (
+    <Suspense>
+      <Card card={card} />
+    </Suspense>
+  );
+};
+
+export { CardSuspense as Card };

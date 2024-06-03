@@ -1,7 +1,7 @@
 "use client";
 import { Card } from "./Card";
 import { Market, Markets } from "../../app/services/placeholder";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 export type Card = {
@@ -54,4 +54,21 @@ const CardContainer = ({
   );
 };
 
-export default CardContainer;
+const CardContainerSuspense = ({
+  cards,
+  multi,
+}: {
+  cards: Markets;
+  multi?: boolean;
+}) => {
+  return (
+    <Suspense>
+      <CardContainer
+        cards={cards}
+        multi={multi}
+      />
+    </Suspense>
+  );
+};
+
+export { CardContainerSuspense as CardContainer };

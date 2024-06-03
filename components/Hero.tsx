@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 import { Hero as HeroProps } from "../app/services/placeholder";
 import { useSearchParams } from "next/navigation";
 
@@ -39,4 +39,12 @@ const Hero = ({ hero }: { hero: HeroProps }) => {
   );
 };
 
-export default Hero;
+const HeroSuspense = ({ hero }: { hero: HeroProps }) => {
+  return (
+    <Suspense>
+      <Hero hero={hero} />
+    </Suspense>
+  );
+};
+
+export { HeroSuspense as Hero };

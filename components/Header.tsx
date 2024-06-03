@@ -7,7 +7,7 @@ import { WavesIcon } from "./ui/WavesIcon";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
-export const Header = () => {
+const Header = () => {
   const searchParams = useSearchParams();
 
   const pathname = usePathname();
@@ -49,3 +49,16 @@ export const Header = () => {
     </header>
   );
 };
+
+import React, { Suspense } from "react";
+
+const HeaderSuspense = () => {
+  useSearchParams;
+  return (
+    <Suspense>
+      <Header />
+    </Suspense>
+  );
+};
+
+export { HeaderSuspense as Header };
