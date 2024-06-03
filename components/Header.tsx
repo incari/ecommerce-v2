@@ -1,10 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "./ui/SearchIcon";
 import { WavesIcon } from "./ui/WavesIcon";
+import { atom, useAtom } from "jotai";
+
+export const highlight = atom("");
 
 export const Header = () => {
+  const [value, setValue] = useAtom(highlight);
+
   return (
     <header className="flex items-center px-4 py-3 shadow-sm dark:bg-gray-950 w-full backdrop-blur-md z-40 fixed ">
       <Link
@@ -22,6 +28,8 @@ export const Header = () => {
           type="email"
           placeholder="Search"
           className="pl-8 w-full"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />
       </div>
     </header>

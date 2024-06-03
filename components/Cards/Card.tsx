@@ -1,4 +1,5 @@
 "use client";
+import Highlighter from "react-highlight-words";
 import Link from "next/link";
 import ReactDOMServer from "react-dom/server";
 
@@ -10,6 +11,8 @@ import { ImageWithHover } from "./ImageWithHover";
 import { Tooltip } from "react-tooltip";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { useAtom } from "jotai";
+import { highlight } from "../Header";
 
 const Tag = ({ tag }: { tag: { tagId: string; name: string } }) => (
   <Badge
@@ -30,6 +33,8 @@ const Card = ({ card }: { card: Market }) => {
   //Tooltip
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isOpen, setIsOpen] = useState(false);
+  // Highlight
+  const [textToHighlight] = useAtom(highlight);
 
   const discountPercentage =
     originalPrice && discountAmount
@@ -86,7 +91,12 @@ const Card = ({ card }: { card: Market }) => {
           title={card.title}
         />
         <div className="px-4 pt-2 font-bold text-2xl text-gray-800">
-          {card.title}
+          <Highlighter
+            highlightClassName="YourHighlightClass"
+            searchWords={[textToHighlight]}
+            autoEscape={true}
+            textToHighlight={card.title}
+          />
         </div>
 
         <CardDetails card={card} />
