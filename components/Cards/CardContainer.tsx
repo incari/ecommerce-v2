@@ -1,9 +1,8 @@
 "use client";
 import { Card } from "./Card";
 import { Market, Markets } from "../../app/services/placeholder";
-import { useAtom } from "jotai";
-import { highlight } from "../Header";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export type Card = {
   id: string;
@@ -20,20 +19,21 @@ const CardContainer = ({
   multi?: boolean;
 }) => {
   const [filter, setFilter] = useState<Markets | []>(cards);
-  const [highlighted] = useAtom(highlight);
+  const searchParams = useSearchParams();
+  const searchValue = searchParams.get("search")?.toString();
 
   useEffect(() => {
-    if (highlighted) {
+    if (searchValue) {
       setFilter(
         cards.filter((card) =>
-          card.title.toLowerCase().includes(highlighted.toLowerCase())
+          card.title.toLowerCase().includes(searchValue.toLowerCase())
         ) as Markets
       );
     } else {
       // Reset to all cards when there's no highlighted text
       setFilter(cards);
     }
-  }, [cards, highlighted]);
+  }, [cards, searchValue]);
 
   return (
     <>

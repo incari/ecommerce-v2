@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Hero as HeroProps } from "../app/services/placeholder";
+import { useSearchParams } from "next/navigation";
 
 const Hero = ({ hero }: { hero: HeroProps }) => {
+  const searchParams = useSearchParams();
+  const searchValue = searchParams.get("search")?.toString();
+  if (searchValue) return null;
+
   return (
     <div className="relative w-full aspect-auto">
       <Image

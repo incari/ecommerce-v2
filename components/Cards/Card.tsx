@@ -11,8 +11,8 @@ import { ImageWithHover } from "./ImageWithHover";
 import { Tooltip } from "react-tooltip";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { useAtom } from "jotai";
-import { highlight } from "../Header";
+
+import { useSearchParams } from "next/navigation";
 
 const Tag = ({ tag }: { tag: { tagId: string; name: string } }) => (
   <Badge
@@ -24,6 +24,7 @@ const Tag = ({ tag }: { tag: { tagId: string; name: string } }) => (
 );
 
 const Card = ({ card }: { card: Market }) => {
+  const searchParams = useSearchParams();
   // Images
   const primaryImage = card.images[0];
   const hoverImage = card.images[1];
@@ -33,8 +34,10 @@ const Card = ({ card }: { card: Market }) => {
   //Tooltip
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isOpen, setIsOpen] = useState(false);
+
   // Highlight
-  const [textToHighlight] = useAtom(highlight);
+  const searchValue = searchParams.get("search")?.toString() || "";
+  console.log("searchValue", searchValue);
 
   const discountPercentage =
     originalPrice && discountAmount
@@ -93,7 +96,7 @@ const Card = ({ card }: { card: Market }) => {
         <div className="px-4 pt-2 font-bold text-2xl text-gray-800">
           <Highlighter
             highlightClassName="YourHighlightClass"
-            searchWords={[textToHighlight]}
+            searchWords={[searchValue]}
             autoEscape={true}
             textToHighlight={card.title}
           />
