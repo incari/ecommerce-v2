@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon } from "./ui/SearchIcon";
 import { WavesIcon } from "./ui/WavesIcon";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
 
 export const Header = () => {
   const searchParams = useSearchParams();
@@ -12,7 +13,7 @@ export const Header = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  function handleSearch(term: string) {
+  const handleSearch = useDebouncedCallback((term) => {
     const params = new URLSearchParams(searchParams);
     if (term) {
       params.set("search", term);
@@ -20,7 +21,7 @@ export const Header = () => {
       params.delete("search");
     }
     replace(`${pathname}?${params.toString()}`);
-  }
+  }, 300);
 
   return (
     <header className="flex items-center px-4 py-3 shadow-sm dark:bg-gray-950 w-full backdrop-blur-md z-40 fixed ">
@@ -42,7 +43,7 @@ export const Header = () => {
           onChange={(e) => {
             handleSearch(e.target.value);
           }}
-          defaultValue={searchParams.get("query")?.toString()}
+          defaultValue={searchParams.get("search")?.toString()}
         />
       </div>
     </header>
