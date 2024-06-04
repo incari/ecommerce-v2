@@ -1412,7 +1412,12 @@ const data = {
   cmsContent: null,
 };
 
+// Data Types
+
 export type DataType = typeof data;
+
+export type Destinations = typeof data.destinations;
+
 export type Markets =
   | typeof data.destinations.featuredMultiMarket
   | typeof data.destinations.multiMarket;

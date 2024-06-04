@@ -2,25 +2,16 @@ import { CardContainer } from "../components/Cards/CardContainer";
 import { Header } from "../components/Header";
 import { getData } from "./services/getData";
 import "react-tooltip/dist/react-tooltip.css";
-import { Hero } from "../components/Hero";
+import { Results } from "../components/Results";
 
 export default async function Home() {
-  const {
-    hero,
-    destinations: { featuredMultiMarket, multiMarket },
-  } = await getData();
+  const { destinations } = await getData();
 
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Header />
       <div className="mt-16 w-full">
-        <Hero hero={hero} />
-        <CardContainer cards={featuredMultiMarket} />
-
-        <CardContainer
-          cards={multiMarket}
-          multi
-        />
+        <Results destinations={destinations} />
       </div>
     </main>
   );
