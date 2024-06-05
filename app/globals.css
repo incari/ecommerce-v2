@@ -74,3 +74,7 @@
       @apply bg-background text-foreground;
     }
   }
+  .backdropIOS{
+    -webkit-backdrop-filter: 12px;
+    backdrop-filter:12px;
+  }
