@@ -1,8 +1,9 @@
 "use client";
 import { Card } from "./Card";
-import { Markets } from "../../app/services/placeholder";
+
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { MarketCard } from "../../app/services/placeholder";
 
 type Card = {
   id: string;
@@ -11,13 +12,9 @@ type Card = {
   image: string;
 };
 
-const CardContainer = ({
-  cards,
-  multi,
-}: {
-  cards: Markets;
-  multi?: boolean;
-}) => {
+type Props = { cards: MarketCard[]; multi?: boolean };
+
+const CardContainer = ({ cards, multi }: Props) => {
   return (
     <>
       {multi && (
@@ -26,7 +23,7 @@ const CardContainer = ({
         </div>
       )}
       <section className="flex flex-wrap justify-center gap-4 p-4">
-        {cards.map((card: any) => (
+        {cards.map((card: MarketCard) => (
           <Card
             key={card.id}
             card={card}
@@ -37,13 +34,7 @@ const CardContainer = ({
   );
 };
 
-const CardContainerSuspense = ({
-  cards,
-  multi,
-}: {
-  cards: Markets;
-  multi?: boolean;
-}) => {
+const CardContainerSuspense = ({ cards, multi }: Props) => {
   return (
     <Suspense>
       <CardContainer

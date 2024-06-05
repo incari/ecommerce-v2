@@ -1416,11 +1416,22 @@ const data = {
 
 export type DataType = typeof data;
 
-export type Destinations = typeof data.destinations;
+export type DestinationsProps = {
+  featuredMultiMarket: Markets;
+  multiMarket: Markets;
+};
 
-export type Markets =
-  | typeof data.destinations.featuredMultiMarket
-  | typeof data.destinations.multiMarket;
+export type Markets = Array<MarketCard>;
 
-export type Market = (typeof data.destinations.featuredMultiMarket)[0];
-export type Hero = typeof data.hero;
+export type MarketCard =
+  | (typeof data.destinations.featuredMultiMarket)[0]
+  | (typeof data.destinations.multiMarket)[0];
+
+type IncludesItem =
+  | "ACCOMMODATION"
+  | "ALL_FLIGHTS"
+  | "ALL_TRANSFERS"
+  | "SOME_MEALS"
+  | "ACTIVITIES";
+
+export type Includes = Markets["includes"];

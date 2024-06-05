@@ -3,7 +3,7 @@ import Highlighter from "react-highlight-words";
 import Link from "next/link";
 import ReactDOMServer from "react-dom/server";
 
-import { Market } from "../../app/services/placeholder";
+import { MarketCard } from "../../app/services/placeholder";
 import { Badge } from "@/components/ui/badge";
 import { CardDetails } from "./CardDetails";
 import { ImageWithHover } from "./ImageWithHover";
@@ -14,16 +14,27 @@ import { FaArrowRight } from "react-icons/fa";
 
 import { useSearchParams } from "next/navigation";
 
-const Tag = ({ tag }: { tag: { tagId: string; name: string } }) => (
+const Tag = ({
+  tag,
+  highlight,
+}: {
+  tag: { tagId: string; name: string };
+  highlight: string;
+}) => (
   <Badge
     className="text-xs font-semibold m-1 px-2.5 py-1"
     variant={tag.name === "PROMOTED" ? "default" : "secondary"}
   >
-    {tag.name}
+    <Highlighter
+      highlightClassName="YourHighlightClass"
+      searchWords={[highlight]}
+      autoEscape={true}
+      textToHighlight={tag.name}
+    />
   </Badge>
 );
 
-const Card = ({ card }: { card: Market }) => {
+const Card = ({ card }: { card: MarketCard }) => {
   const searchParams = useSearchParams();
   // Images
   const primaryImage = card.images[0];
@@ -36,8 +47,7 @@ const Card = ({ card }: { card: Market }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Highlight
-  const searchValue = searchParams.get("search")?.toString() || "";
-  console.log("searchValue", searchValue);
+  const highlight = searchParams.get("search")?.toString() || "";
 
   const discountPercentage =
     originalPrice && discountAmount
@@ -96,18 +106,22 @@ const Card = ({ card }: { card: Market }) => {
         <div className="px-4 pt-2 font-bold text-2xl text-gray-800">
           <Highlighter
             highlightClassName="YourHighlightClass"
-            searchWords={[searchValue]}
+            searchWords={[highlight]}
             autoEscape={true}
             textToHighlight={card.title}
           />
         </div>
 
-        <CardDetails card={card} />
+        <CardDetails
+          card={card}
+          highlight={highlight}
+        />
         <div className="flex flex-wrap mb-2">
           {sortedTags.map((tag) => (
             <Tag
               key={tag.tagId}
               tag={tag}
+              highlight={highlight}
             />
           ))}
         </div>
@@ -122,7 +136,7 @@ const Card = ({ card }: { card: Market }) => {
   );
 };
 
-const CardSuspense = ({ card }: { card: Market }) => {
+const CardSuspense = ({ card }: { card: MarketCard }) => {
   return (
     <Suspense>
       <Card card={card} />

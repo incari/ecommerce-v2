@@ -1,4 +1,3 @@
-import { CardContainer } from "../components/Cards/CardContainer";
 import { Header } from "../components/Header";
 import { getData } from "./services/getData";
 import "react-tooltip/dist/react-tooltip.css";

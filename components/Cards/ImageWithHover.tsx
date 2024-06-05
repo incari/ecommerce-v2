@@ -24,7 +24,7 @@ export const ImageWithHover = ({
         alt={title}
         width={450}
         height={300}
-        loading="lazy"
+        priority
       />
     )}
     {hoverImage && (

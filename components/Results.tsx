@@ -1,41 +1,19 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+
+import React, { Suspense } from "react";
 import { CardContainer } from "./Cards/CardContainer";
-import { Destinations, Markets } from "../app/services/placeholder";
-import { useSearchParams } from "next/navigation";
+import { DestinationsProps } from "../app/services/placeholder";
+import { useFilterCards } from "../hooks/useFilterCards";
 
 type ResultsProps = {
-  destinations: Destinations;
-};
-type FilteredProps = {
-  featuredCards: Markets | [];
-  multiMarketCards: Markets | [];
+  destinations: DestinationsProps;
 };
 
 const Results = ({ destinations }: ResultsProps) => {
-  const { featuredMultiMarket, multiMarket } = destinations || {};
-  const [filterCards, setFilterCards] = useState<FilteredProps>({
-    featuredCards: [],
-    multiMarketCards: [],
-  });
+  const { featuredMultiMarket, multiMarket } = useFilterCards(destinations);
 
-  const searchParams = useSearchParams();
-  const searchValue = searchParams.get("search")?.toLowerCase();
-
-  useEffect(() => {
-    const filterCards = (cards: Markets) =>
-      cards?.filter((card) =>
-        card.title.toLowerCase().includes(searchValue || "")
-      ) as Markets;
-
-    setFilterCards({
-      featuredCards: filterCards(featuredMultiMarket) || [],
-      multiMarketCards: filterCards(multiMarket),
-    });
-  }, [featuredMultiMarket, multiMarket, searchValue]);
-
-  const hasFeaturedResults = filterCards.featuredCards.length > 0;
-  const hasMultiMarketResults = filterCards.multiMarketCards.length > 0;
+  const hasFeaturedResults = featuredMultiMarket.length > 0;
+  const hasMultiMarketResults = multiMarket.length > 0;
 
   if (!hasFeaturedResults && !hasMultiMarketResults) {
     return (
@@ -47,12 +25,10 @@ const Results = ({ destinations }: ResultsProps) => {
 
   return (
     <div>
-      {hasFeaturedResults && (
-        <CardContainer cards={filterCards.featuredCards} />
-      )}
+      {hasFeaturedResults && <CardContainer cards={featuredMultiMarket} />}
       {hasMultiMarketResults && (
         <CardContainer
-          cards={filterCards.multiMarketCards}
+          cards={multiMarket}
           multi
         />
       )}
