@@ -2,19 +2,14 @@ import React from "react";
 import { getById } from "../services/getById";
 import Image from "next/image";
 import { CardDetails } from "../../components/Cards/CardDetails";
+import { Title } from "../../components/Title";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const market = await getById(params.id);
-  const images = [
-    {
-      src: "/path-to-your-large-image.jpg",
-      className: "",
-    },
-    {},
-  ];
+
   return (
     <div className="flex min-h-screen flex-col items-center p-4">
-      <div className="grid md:grid-cols-3 md:grid-rows-2 grid-cols-3 grid-rows-1 w-full min-h-[300px] ">
+      <div className="grid md:grid-cols-3 md:grid-rows-2 grid-cols-3 grid-rows-1 w-full min-h-[300px] gap-2">
         {market?.images.map(
           (image, index) =>
             index < 3 && (
@@ -37,7 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             )
         )}
       </div>
-      <h1 className="text-4xl text-center py-8">{market?.title}</h1>
+      <Title title={market?.title} />
       {market && (
         <div className="flex items-center">
           <Image

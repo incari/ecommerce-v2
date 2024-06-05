@@ -112,10 +112,7 @@ const Card = ({ card }: { card: MarketCard }) => {
           />
         </div>
 
-        <CardDetails
-          card={card}
-          highlight={highlight}
-        />
+        <CardDetails card={card} />
         <div className="flex flex-wrap mb-2">
           {sortedTags.map((tag) => (
             <Tag
