@@ -1427,11 +1427,4 @@ export type MarketCard =
   | (typeof data.destinations.featuredMultiMarket)[0]
   | (typeof data.destinations.multiMarket)[0];
 
-type IncludesItem =
-  | "ACCOMMODATION"
-  | "ALL_FLIGHTS"
-  | "ALL_TRANSFERS"
-  | "SOME_MEALS"
-  | "ACTIVITIES";
-
 export type Includes = Markets["includes"];

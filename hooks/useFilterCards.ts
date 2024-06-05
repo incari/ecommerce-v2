@@ -76,7 +76,7 @@ export function useFilterCards(
         : [],
       multiMarket: multiMarket ? applyFilters(multiMarket) : [],
     });
-  }, [featuredMultiMarket, multiMarket, searchValue]); // Add other filter dependencies if any
+  }, [featuredMultiMarket, multiMarket, searchValue]);
 
   return filterCards;
 }

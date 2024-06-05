@@ -6,12 +6,5 @@ import { Results } from "../components/Results";
 export default async function Home() {
   const { destinations } = await getData();
 
-  return (
-    <main className="flex min-h-screen flex-col items-center">
-      <Header />
-      <div className="mt-16 w-full">
-        <Results destinations={destinations} />
-      </div>
-    </main>
-  );
+  return <Results destinations={destinations} />;
 }

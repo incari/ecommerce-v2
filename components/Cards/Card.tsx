@@ -78,7 +78,7 @@ const Card = ({ card }: { card: MarketCard }) => {
     setIsOpen(false);
   };
   // Function to update tooltip position
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     setPosition({
       x: e.clientX,
       y: e.clientY,
