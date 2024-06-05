@@ -7,10 +7,10 @@ const Header = () => {
     <header className="flex items-center px-4 py-3 shadow-sm dark:bg-gray-950 w-full backdrop-blur-md z-40 fixed ">
       <Link
         href="/"
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 pr-2"
         prefetch={false}
       >
-        <WavesIcon className="h-6 w-6" />
+        <WavesIcon className="h-6 w-6 " />
         EpicQuest
       </Link>
       <SearchBar />
