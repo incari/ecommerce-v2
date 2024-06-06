@@ -2,9 +2,10 @@
 
 Hey wake up!
 
-My name is Martín and thank you for taking the time to review this project. I'm excited to share my work with you and look forward to your feedback and contributions. This repository is built to display some of my skills developing modern robust, scalable, and efficient applications.
+My name is ***Martín*** and thank you for taking the time to review this project. I'm excited to share my work with you and look forward to your feedback and contributions. This repository is built to display some of my skills developing modern robust, scalable, and efficient applications.
 
 ## Tech Stack Overview
+
 Our project leverages the following technologies:
 
 - React: A powerful JavaScript library for building user interfaces.
@@ -23,45 +24,30 @@ Demo app
 
 Ready to jump in? Here’s how you can get started:
 
-1. Clone the Repo:
+### 1. Clone the Repo:
  ```bash
  git clone https://github.com/your-awesome-repo.git
  ```
 
-2. Install Dependencies: 
+### 2. Install Dependencies: 
 
 ```bash
  npm install
- 
  ``` 
 or
   ```bash
    yarn install
    ```
 
-3. Run the App:
+### 3. Run the App:
 ```bash
  npm run dev
  ``` 
- 
  or 
- 
  ```bash 
  yarn dev
  ``` 
   and your local server will be up and running.
-
-
-
-## Instructions
-
-1. **TypeScript**: Use TypeScript for the project.
-
-2. **Tests**: Write tests for your components.
-
-3. **NextJS (Optional)**: You have the option to use NextJS.
-
-4. **Reusable Components**: Ensure that your components are reusable.
 
 
 ## Goal
@@ -94,14 +80,17 @@ The goal of this assignment is to create a product cards page with TypeScript an
     - Prices: -> For this case, it was implemented a regex that removes the symbols in the price text to highlight the number 3499 when the text is 3,499 
 
 
+
+
 5. :white_check_mark:  **Bonus Feature**: Support searching product cards by any data in the product. For example, searching for "Cape" should return product cards that have "Cape Town" in highlights, and searching for "3799" should return product cards with a price of $3,799.
 
 ### Other Features implemented
 
-:white_check_mark:  **Extra Feature**: Was out of the scope, It was implemented a map when the user hover (tap on mobile) the **"See map"** badge 
+- :white_check_mark:  **Extra Feature**: Was out of the scope.
+    >It was implemented a map when the user hover (tap on mobile) the **"See map"** badge 
 
-:white_check_mark:  **Extra Feature 2**: Detail Page
 
+- :white_check_mark:  **Extra Feature 2**: Detail Page
     >Was implemented a redirect on clicking one card to the detail page with more images, and map. This is responsive and re-align and hide elements in mobile.
 
 
