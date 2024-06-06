@@ -23,11 +23,33 @@ Demo app
 
 Ready to jump in? Here’s how you can get started:
 
-1. Clone the Repo: ```bash git clone https://github.com/your-awesome-repo.git```
+1. Clone the Repo:
+ ```bash
+ git clone https://github.com/your-awesome-repo.git
+ ```
 
-2. Install Dependencies: ```bash npm install``` or  ```bash yarn install```
+2. Install Dependencies: 
 
-3. Run the App:```bash npm run dev``` or ```bash yarn dev```  and your local server will be up and running.
+```bash
+ npm install
+ 
+ ``` 
+or
+  ```bash
+   yarn install
+   ```
+
+3. Run the App:
+```bash
+ npm run dev
+ ``` 
+ 
+ or 
+ 
+ ```bash 
+ yarn dev
+ ``` 
+  and your local server will be up and running.
 
 
 
