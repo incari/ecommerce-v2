@@ -90,7 +90,7 @@ const Card = ({ card }: { card: MarketCard }) => {
       <Link
         href={`/${card.id}`}
         key={card.id}
-        className="max-w-lg rounded overflow-hidden shadow-lg bg-white block group"
+        className="max-w-lg rounded overflow-hidden shadow-lg bg-white block group hover:shadow-2xl"
         aria-label={`View details of ${card.title}`}
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
