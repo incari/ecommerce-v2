@@ -3,7 +3,7 @@ import Highlighter from "react-highlight-words";
 import Link from "next/link";
 import ReactDOMServer from "react-dom/server";
 
-import { MarketCard } from "../../app/services/placeholder";
+import { MarketCard } from "../../services/placeholder";
 import { Badge } from "@/components/ui/badge";
 import { CardDetails } from "./CardDetails";
 import { ImageWithHover } from "./ImageWithHover";

@@ -1,5 +1,5 @@
 import React from "react";
-import { getById } from "../services/getById";
+import { getById } from "../../services/getById";
 import Image from "next/image";
 import { CardDetails } from "../../components/Cards/CardDetails";
 import { Title } from "../../components/Title";

@@ -3,7 +3,7 @@ import { Card } from "./Card";
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { MarketCard } from "../../app/services/placeholder";
+import { MarketCard } from "../../services/placeholder";
 
 type Card = {
   id: string;

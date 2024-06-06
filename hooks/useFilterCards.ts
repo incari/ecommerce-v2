@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { DestinationsProps, Markets } from "../app/services/placeholder";
+import { DestinationsProps, Markets } from "../services/placeholder";
 import { priceBeautify } from "../lib/utils";
 
 interface FilterParams {

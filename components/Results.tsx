@@ -2,7 +2,7 @@
 
 import React, { Suspense } from "react";
 import { CardContainer } from "./Cards/CardContainer";
-import { DestinationsProps } from "../app/services/placeholder";
+import { DestinationsProps } from "../services/placeholder";
 import { useFilterCards } from "../hooks/useFilterCards";
 
 type ResultsProps = {

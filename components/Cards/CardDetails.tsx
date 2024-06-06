@@ -1,7 +1,7 @@
 "use client";
 import { FaMapMarkerAlt, FaClock, FaTag, FaArrowDown } from "react-icons/fa";
 import { priceBeautify } from "../../lib/utils";
-import { MarketCard } from "../../app/services/placeholder";
+import { MarketCard } from "../../services/placeholder";
 import { Details } from "./Details";
 import { IncludesItem, IncludesSection } from "./IncludeSection";
 import { useSearchParams } from "next/navigation";
