@@ -16,7 +16,9 @@ Our project leverages the following technologies:
 
 ## Demo
 
- [Demo App](https://ecommerce-v2-nine.vercel.app){:target="_blank"}
+<a href="https://ecommerce-v2-nine.vercel.app" target="_blank">
+ Demo App
+<a/>
 
 ## Getting Started
 
